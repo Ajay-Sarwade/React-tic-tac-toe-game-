@@ -4,7 +4,7 @@ import './index.css';
 
 
 const Square = (props) => {
-  const [value, setValue] = useState(null);
+ 
   return (
 
     <button className='square' onClick={props.onclicking}   >{props.value}</button>
@@ -22,7 +22,7 @@ const Board = () => {
 
   const handleClick = (i) => {
     const list1 = [...squares];
-    if (list1[i] == null && !winner(squares)) {
+    if (list1[i] === null && !winner(squares)) {
       list1[i] = xisnext ? 'X' : "O";
       setsquare(list1);
       isxnext(!xisnext);
@@ -56,7 +56,7 @@ function winner(list) {
   const lines = [[0, 1, 2], [3, 4, 5], [6, 7, 8], [0, 3, 6], [1, 4, 7], [2, 5, 8], [0, 4, 8], [2, 4, 6]];
   for (let line of lines) {
     const [a, b, c] = line;
-    if (list[a] && list[a] == list[b] && list[a] == list[c]) {
+    if (list[a] && list[a] === list[b] && list[a] === list[c]) {
       return list[a];
     }
   }
